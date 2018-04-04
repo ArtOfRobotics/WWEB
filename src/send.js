@@ -17,7 +17,7 @@ function talker() {
       // Define a function to execute every 100ms
       setInterval(() => {
         // Construct the message
-        msg.data = 'hello world ' + count;
+        msg.data = 'sensordata ' + count;
         // Publish over ROS
         pub.publish(msg);
         // Log through stdout and /rosout

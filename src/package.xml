@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <name>willyweb</name>
+  <version>0.0.1</version>
+  <description>The Willy Web package</description>
+
+  <maintainer email="willythegarbagedisposal@gmail.com">Jonathan ten Hove</maintainer>
+  <license>Apache 2.0</license>
+  <url type="website">https://github.com/ArtOfRobotics/WWEB</url>
+
+  <author email="willythegarbagedisposal@gmail.com">Jonathan ten Hove</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>std_msgs</run_depend>
+</package>
