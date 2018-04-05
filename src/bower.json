@@ -1,0 +1,35 @@
+{
+  "name": "src",
+  "description": "a Sails application",
+  "main": "app.js",
+  "authors": [
+    "anonymous node/sails user"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ArtOfRobotics/WWEB",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "fontawesome": "^5.0.9",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.0",
+    "angular": "^1.6.9"
+  },
+  "install": {
+    "path": "assets/dependencies",
+    "sources": {
+      "bootstrap": "bower_components/bootstrap/dist/css/bootstrap.min.css",
+      "fontawesome": "bower_components/fontawesome/web-fonts-with-css/css/fontawesome.min.css",
+      "jquery": "bower_components/jquery/dist/jquery.min.js",
+      "angular": "bower_components/angular/angular.min.js",
+      "moment": "bower_components/moment/min/moment.min.js"
+    }
+  }
+}

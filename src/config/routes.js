@@ -27,6 +27,9 @@ module.exports.routes = {
   '/': {
     view: 'pages/homepage'
   },
+  '/test': {
+    view: 'pages/sonar'
+  },
 
   /***************************************************************************
   *                                                                          *
