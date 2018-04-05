@@ -16,7 +16,7 @@ module.exports = {
 
     sails.log('Spamming dummy data for ultrasonic sensors... (`ultrasonicdata`)');
 
-    // All done.
+    // All done
     return exits.success();
 
   }
