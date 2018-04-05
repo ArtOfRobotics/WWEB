@@ -1,5 +1,6 @@
 .vs/
 devel/
 build/
-src/node_modules
+node_modules
 *.code-workspace
+init.sh

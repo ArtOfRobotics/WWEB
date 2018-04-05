@@ -1,9 +1,18 @@
 # WWEB
 Web platform
 
+important files for working with ros and nodejs
+package.xml
+CMakeLists.txt (it does not matter the scripts mentioned, just that the rospackage is made during catkin build)
+
+Do once! For always acces to ros:
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+## Demo tutorial:
 Install
 1. clone repository
-2. cd src
+2. cd demo/src
 3. npm install
 4. cd ..
 5. source /opt/ros/kinetic/setup.bash
