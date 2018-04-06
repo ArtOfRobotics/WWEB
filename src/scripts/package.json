@@ -2,7 +2,7 @@
   "name": "src",
   "version": "1.0.0",
   "description": "",
-  "main": "receive.js",
+  "main": "listento.js",
   "dependencies": {
     "rosnodejs": "^2.2.0"
   },
