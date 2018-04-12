@@ -9,7 +9,6 @@ const rosnodejs = require('rosnodejs');
 const msg = rosnodejs.require('sensor_msgs').msg;
 
 module.exports = {
-
     subscribe: function (req, res) {
         sails.log("subscribing to sonar data");
         rosnodejs.initNode('/sonar')
