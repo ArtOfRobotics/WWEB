@@ -1,4 +1,4 @@
-# src
+# new
 
 a [Sails v1](https://sailsjs.com) application
 
@@ -15,7 +15,7 @@ a [Sails v1](https://sailsjs.com) application
 
 ### Version info
 
-This app was originally generated on Thu Apr 05 2018 10:26:29 GMT+0200 (W. Europe Daylight Time) using Sails v1.0.0.
+This app was originally generated on Tue Apr 10 2018 14:53:09 GMT+0200 (W. Europe Daylight Time) using Sails v1.0.0.
 
 <!-- Internally, Sails used [`sails-generate@1.15.18`](https://github.com/balderdashy/sails-generate/tree/v1.15.18/lib/core-generators/new). -->
 

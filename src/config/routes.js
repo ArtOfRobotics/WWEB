@@ -7,7 +7,6 @@
  * For more information on configuring custom routes, check out:
  * https://sailsjs.com/anatomy/config/routes-js
  */
-
 module.exports.routes = {
 
 
@@ -27,10 +26,9 @@ module.exports.routes = {
   '/': {
     view: 'pages/homepage'
   },
-  '/test': {
+  '/sonar': {
     view: 'pages/sonar'
   },
-
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

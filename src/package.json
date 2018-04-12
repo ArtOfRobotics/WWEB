@@ -1,5 +1,5 @@
 {
-  "name": "src",
+  "name": "new",
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
@@ -27,7 +27,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/src.git"
+    "url": "git://github.com/anonymous node/sails user/new.git"
   },
   "author": "anonymous node/sails user",
   "license": "",
