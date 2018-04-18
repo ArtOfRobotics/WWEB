@@ -5,7 +5,7 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-const rosnodejs = require('rosnodejs');
+const rosnodejs = require('../../rosnodejs');
 const msg = rosnodejs.require('sensor_msgs').msg;
 
 module.exports = {
