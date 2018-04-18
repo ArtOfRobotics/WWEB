@@ -2,16 +2,16 @@
 'use strict';
 
 const rosnodejs = require('rosnodejs');
-const std_msgs = rosnodejs.require('std_msgs').msg;
+const msgs = rosnodejs.require('sensor_msgs').msg;
 
 function talker() {
   // Register node with ROS master
   rosnodejs.initNode('/sonar')
     .then((rosNode) => {
       // Create ROS publisher on the 'chatter' topic with String message
-      let pub = rosNode.advertise('/sonar', std_msgs.String);
+      let pub = rosNode.advertise('/sonar', msgs.LaserScan);
       let count = 0;
-      const msg = new std_msgs.String();
+      const msg = new msgs.LaserScan();
       // Define a function to execute every 100ms
       setInterval(() => {
         // Construct the message

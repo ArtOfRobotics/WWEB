@@ -5,17 +5,17 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-const rosnodejs = require('../../rosnodejs');
+const rosnodejs = require('rosnodejs')
 const msg = rosnodejs.require('sensor_msgs').msg;
 
 module.exports = {
     subscribe: function (req, res) {
         sails.log("subscribing to sonar data");
-        rosnodejs.initNode('/sonar')
+        rosnodejs.initNode('/sonar_listener')
             .then((rosNode) => {
-                let sub = rosNode.subscribe('/sonar', msg.String,
+                let sub = rosNode.subscribe('/sonar', msg.LaserScan,
                     (data) => {
-                        sails.log(data);
+                        console.log(data);
                     }
                 );
             });

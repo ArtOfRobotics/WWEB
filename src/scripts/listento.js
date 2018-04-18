@@ -8,15 +8,14 @@
 const rosnodejs = require('rosnodejs');
 
 function listener(node) {
-  var msgType = null;
-  var dataType = null;
+  var type = 'sensor_msgs';
   const msg = rosnodejs.require(type).msg;
   rosnodejs.initNode('/' + node + '_listener')
     .then((rosNode) => {
       rosnodejs.log.info('Start listening to /' + node + ' on node: ' + '/' + node + '_listener');
       switch (node) {
         case "sonar":
-          subscribeTo(node, msg.String);
+          subscribeTo(rosNode, node, msg.LaserScan);
           break;
 
         default:
@@ -27,10 +26,10 @@ function listener(node) {
     });
 }
 
-function subscribeTo(node, type) {
+function subscribeTo(rosNode, node, type) {
   let sub = rosNode.subscribe('/' + node, type,
     (data) => {
-      rosnodejs.log.info('Received data: [' + data.data + ']');
+      console.log(data);
     }
   );
 }
