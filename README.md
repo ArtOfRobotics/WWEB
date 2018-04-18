@@ -2,8 +2,8 @@
 Web platform
 
 important files for working with ros and nodejs
-package.xml
-CMakeLists.txt (it does not matter the scripts mentioned, just that the rospackage is made during catkin build)
+* package.xml
+* CMakeLists.txt (it does not matter the scripts mentioned, just that the rospackage is made during catkin build)
 
 Do once! For always acces to ros:
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
@@ -19,7 +19,7 @@ Install
 6. catkin_make
 
 After this build you can launch any js file using
-rosrun willyweb file.js
+rosrun demo file.js
 
 However you should add this to the beginning of a js file:
 #!/usr/bin/env node
@@ -31,9 +31,9 @@ Window #1 (launch roscore)
 
 Window #2 (generate sensor data)
 1. source devel/setup.bash
-2. rosrun willyweb receive.js
+2. rosrun demo receive.js
 
 Window #3 (retreive sensor data)
 1. source devel/setup.bash
-2. rosrun willyweb send.js
+2. rosrun demo send.js
 
