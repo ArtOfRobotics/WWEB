@@ -13,7 +13,7 @@ module.exports = {
         sails.log("subscribing to sonar data");
         rosnodejs.initNode('/sonar_listener')
             .then((rosNode) => {
-                let sub = rosNode.subscribe('/sonar', msg.LaserScan,
+                let sub = rosNode.subscribe('/sonar', msg.LaserEcho,
                     (data) => {
                         console.log(data);
                     }

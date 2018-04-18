@@ -9,9 +9,9 @@ function talker() {
   rosnodejs.initNode('/sonar')
     .then((rosNode) => {
       // Create ROS publisher on the 'chatter' topic with String message
-      let pub = rosNode.advertise('/sonar', msgs.LaserScan);
+      let pub = rosNode.advertise('/sonar', msgs.LaserEcho);
       let count = 0;
-      const msg = new msgs.LaserScan();
+      const msg = new msgs.LaserEcho();
       // Define a function to execute every 100ms
       setInterval(() => {
         // Construct the message

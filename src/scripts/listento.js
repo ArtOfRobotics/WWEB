@@ -15,7 +15,7 @@ function listener(node) {
       rosnodejs.log.info('Start listening to /' + node + ' on node: ' + '/' + node + '_listener');
       switch (node) {
         case "sonar":
-          subscribeTo(rosNode, node, msg.LaserScan);
+          subscribeTo(rosNode, node, msg.LaserEcho);
           break;
 
         default:
