@@ -15,7 +15,7 @@ module.exports = {
             .then((rosNode) => {
                 let sub = rosNode.subscribe('/sonar', msg.LaserEcho,
                     (data) => {
-                        console.log(data);
+                        sails.sockets.blast('sonarUpdated', data.echoes);
                     }
                 );
             });

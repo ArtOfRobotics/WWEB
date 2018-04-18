@@ -15,13 +15,13 @@ function talker() {
       // Define a function to execute every 100ms
       setInterval(() => {
         // Construct the message
-        msg.data = 'sensordata ' + count;
+        msg.echoes = [count, count, count, count, count, count, count, count, count, count];
         // Publish over ROS
         pub.publish(msg);
         // Log through stdout and /rosout
-        rosnodejs.log.info('Afstand: [' + msg.data + ']');
+        rosnodejs.log.info(msg.echoes);
         ++count;
-      }, 100);
+      }, 1000);
     });
 }
 
