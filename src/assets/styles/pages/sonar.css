@@ -10,44 +10,43 @@
     color: white;
     border-radius: 2px;
   }
-  .sonar div:nth-child(10), .frontLeftSide {
+  .sonar-wrapper div:nth-child(10), .frontLeftSide {
     top: 60px;
     left: 40px;
   }
-  .sonar div::nth-child(9), .frontLeft {
+  .sonar-wrapper div:nth-child(9), .frontLeft {
     top: 20px;
     left: 105px;
   }
-  .sonar div::nth-child(8), .frontCenter {
+  .sonar-wrapper div:nth-child(8), .frontCenter {
     top: 20px;
     left: 152px;
   }
-  .sonar div::nth-child(7), .frontRight {
+  .sonar-wrapper div:nth-child(7), .frontRight {
     top: 20px;
     left: 200px;
   }
-  .sonar div::nth-child(6), .frontRightSide {
+  .sonar-wrapper div:nth-child(6), .frontRightSide {
     top: 60px;
     left: 270px;
   }
-
-  .sonar div::nth-child(1), .backLeftSide {
+  .sonar-wrapper div:nth-child(1), .backLeftSide {
     top: 200px;
     left: 60px;
   }
-  .sonar div::nth-child(2), .backLeft {
+  .sonar-wrapper div:nth-child(2), .backLeft {
     top: 250px;
     left: 105px;
   }
-  .sonar div::nth-child(3), .backCenter {
+  .sonar-wrapper div:nth-child(3), .backCenter {
     top: 250px;
     left: 152px;
   }
-  .sosonar div:nar:nth-child(4), .backRight {
+  .sonar-wrapper div:nth-child(4), .backRight {
     top: 250px;
     left: 200px;
   }
-  .sonar div::nth-child(5), .backRightSide {
+  .sonar-wrapper div:nth-child(5), .backRightSide {
     top: 200px;
     left: 250px;
   }
