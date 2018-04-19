@@ -10,44 +10,44 @@
     color: white;
     border-radius: 2px;
   }
-  .frontLeftSide {
+  .sonar div:nth-child(10), .frontLeftSide {
     top: 60px;
     left: 40px;
   }
-  .frontLeft {
+  .sonar div::nth-child(9), .frontLeft {
     top: 20px;
     left: 105px;
   }
-  .frontCenter {
+  .sonar div::nth-child(8), .frontCenter {
     top: 20px;
     left: 152px;
   }
-  .frontRight {
+  .sonar div::nth-child(7), .frontRight {
     top: 20px;
     left: 200px;
   }
-  .frontRightSide {
+  .sonar div::nth-child(6), .frontRightSide {
     top: 60px;
     left: 270px;
   }
 
-  .backLeftSide {
+  .sonar div::nth-child(1), .backLeftSide {
     top: 200px;
     left: 60px;
   }
-  .backLeft {
+  .sonar div::nth-child(2), .backLeft {
     top: 250px;
     left: 105px;
   }
-  .backCenter {
+  .sonar div::nth-child(3), .backCenter {
     top: 250px;
     left: 152px;
   }
-  .backRight {
+  .sosonar div:nar:nth-child(4), .backRight {
     top: 250px;
     left: 200px;
   }
-  .backRightSide {
+  .sonar div::nth-child(5), .backRightSide {
     top: 200px;
     left: 250px;
   }

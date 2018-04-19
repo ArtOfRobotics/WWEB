@@ -24,7 +24,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'pages/homepage'
+    view: 'pages/dashboard'
   },
   '/sonar': {
     view: 'pages/sonar'
