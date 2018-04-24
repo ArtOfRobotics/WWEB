@@ -24,6 +24,12 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
+    view: 'pages/login'
+  },
+  '/login': {
+    view: 'pages/login'
+  },
+  '/dashboard': {
     view: 'pages/dashboard'
   },
   '/sonar': {

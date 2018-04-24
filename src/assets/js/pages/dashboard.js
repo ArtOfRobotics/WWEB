@@ -1,4 +1,4 @@
-if (window.location.pathname == '/' || window.location.pathname == '/dashboard') {
+if (window.location.pathname == '/dashboard') {
     var dashboard = new Vue({
         el: '#dashboard',
         data: {

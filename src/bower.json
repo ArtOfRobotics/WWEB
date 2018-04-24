@@ -29,7 +29,10 @@
         "bower_components/bootstrap/dist/css/bootstrap.min.css",
         "bower_components/bootstrap/dist/css/bootstrap.min.css.map"
       ],
-      "fontawesome": "bower_components/fontawesome/web-fonts-with-css/css/fontawesome.min.css",
+      "fontawesome": [
+        "bower_components/fontawesome/svg-with-js/css/fa-svg-with-js.css",
+        "bower_components/fontawesome/svg-with-js/js/fontawesome-all.min.js"
+      ],
       "jquery": "bower_components/jquery/dist/jquery.min.js",
       "moment": "bower_components/moment/min/moment.min.js",
       "vue": "bower_components/vue/dist/vue.js"

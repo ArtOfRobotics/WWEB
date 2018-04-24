@@ -1,0 +1,45 @@
+<div id="login" class="container">
+    <div class="row align-items-center justify-content-center">
+        <!-- Card Flip -->
+        <div class="col col-4 card-flip text-center">
+            <div class="flip">
+
+                <div class="front">
+                    <!-- front content -->
+                    <div class="card">
+                        <div class="authenticate card-body form-group">
+                            <h3 class="card-title">Willy Web</h3>
+                            <br/>
+                            <i class="fa fa-lock"></i>
+                            <br/>
+                            <label>Fill in the password</label>
+                            <br/>
+                            <input id="password" tabindex="-1" v-model="password" v-on:keypress.enter="authenticate" type="password" class="form-control"
+                            />
+                            <br/>
+                            <button v-on:click="authenticate" class="btn btn-primary">Authenticate</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="back">
+                    <!-- back content -->
+                    <div class="card">
+                        <div class="login card-body form-group">
+                            <h3 class="card-title">Willy Web</h3>
+                            <br/>
+                            <i class="fa fa-user"></i>
+                            <br/>
+                            <label>Fill in the username</label>
+                            <br/>
+                            <input id="username" v-model="username" v-on:keypress.enter="login" type="text" class="form-control" placeholder="username"
+                            />
+                            <br/>
+                            <button v-on:click="login" class="btn btn-primary">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Card Flip -->
+    </div>
+</div>
