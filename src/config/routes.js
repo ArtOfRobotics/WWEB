@@ -24,10 +24,16 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'pages/login'
+    view: 'pages/login',
+    locals: {
+      layout: 'layouts/login'
+    }
   },
   '/login': {
-    view: 'pages/login'
+    view: 'pages/login',
+    locals: {
+      layout: 'layouts/login'
+    }
   },
   '/dashboard': {
     view: 'pages/dashboard'

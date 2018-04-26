@@ -7,7 +7,7 @@
 
 module.exports = {
     authenticate: function (req, res) {
-        if (req.param('password') == 'Willy1234') {
+        if (req.param('password') == 'Willy1234') { // Hard
             req.session.authenticated = true;
             res.json({ succes: true });
         } else {
@@ -15,9 +15,16 @@ module.exports = {
         }
     },
     login: function (req, res) {
-        var user = User.create({
-            name: req.param('username')
-        });
-        req.session.user = user;
+        if (req.session.authenticated) {
+            console.log('\n\nCreating a new user...');
+
+            User
+                .create(_.omit(req.allParams(), 'id'), function (err, user) {
+                    if (err) return res.badrequest(err)
+                    res.status(201);
+                    console.log(user);
+                    return res.json(user);
+                });
+        }
     }
 };

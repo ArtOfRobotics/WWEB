@@ -19,7 +19,9 @@ if (window.location.pathname == '/' || window.location.pathname == '/login') {
 
             },
             login: function (event) {
-                io.socket.get('/Login/login', { username: this.username });
+                io.socket.get('/Login/login', { name: this.username }, function (response) {
+                    console.log(response);
+                });
                 window.location.href = 'http://localhost:1337/dashboard';
             }
         }

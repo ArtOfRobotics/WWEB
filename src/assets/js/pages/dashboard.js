@@ -2,15 +2,7 @@ if (window.location.pathname == '/dashboard') {
     var dashboard = new Vue({
         el: '#dashboard',
         data: {
-            username: '',
             users: []
-        },
-        methods: {
-            login: function () {
-                io.socket.post('/User', { name: this.username }, function (response) {
-                    console.log(response);
-                });
-            }
         }
     })
 
