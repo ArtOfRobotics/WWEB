@@ -1,4 +1,4 @@
-if (window.location.pathname == '/dashboard') {
+if (document.getElementById("dashboard")) {
     var dashboard = new Vue({
         el: '#dashboard',
         data: {
@@ -6,15 +6,4 @@ if (window.location.pathname == '/dashboard') {
         }
     })
 
-    UpdateUsers();
-
-    io.socket.on('userUpdated', function () {
-        UpdateUsers();
-    })
-}
-
-function UpdateUsers() {
-    io.socket.get('/User', function (users) {
-        dashboard.users = users;
-    });
 }

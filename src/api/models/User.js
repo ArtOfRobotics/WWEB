@@ -11,15 +11,24 @@ module.exports = {
     name: {
       type: 'string', required: true
     },
+    session: {
+      type: 'string', required: true
+    },
+    currentpage: {
+      type: 'string', required: true
+    }
   },
-  afterCreate: function () {
+  afterCreate: function (values, next) {
     sails.sockets.blast('userUpdated');
+    next();
   },
-  afterUpdate: function () {
+  afterUpdate: function (values, next) {
     sails.sockets.blast('userUpdated');
+    next();
   },
-  afterDestroy: function () {
+  afterDestroy: function (values, next) {
     sails.sockets.blast('userUpdated');
+    next();
   }
 };
 

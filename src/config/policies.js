@@ -19,4 +19,14 @@ module.exports.policies = {
 
   // '*': true,
 
+  ConfigurationController: { '*': 'Authenticated' },
+  DashboardController: { '*': 'Authenticated' },
+  ControlController: { '*': 'Authenticated' },
+  VisualisationController: { '*': 'Authenticated' },
+  LoginController: {
+    'authenticate': true,
+    'login': true,
+    'currentuser': 'Authenticated'
+  },
+
 };

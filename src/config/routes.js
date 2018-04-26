@@ -23,24 +23,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'pages/login',
-    locals: {
-      layout: 'layouts/login'
-    }
-  },
-  '/login': {
-    view: 'pages/login',
-    locals: {
-      layout: 'layouts/login'
-    }
-  },
-  '/dashboard': {
-    view: 'pages/dashboard'
-  },
-  '/sonar': {
-    view: 'pages/sonar'
-  },
+  '/': 'LoginController.view',
+  '/login': 'LoginController.view',
+  '/dashboard': 'DashboardController.view',
+  '/control': 'ControlController.view',
+  '/visualisation': 'VisualisationController.view',
+  '/configuration': 'ConfigurationController.view',
+
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

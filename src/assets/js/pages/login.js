@@ -1,4 +1,4 @@
-if (window.location.pathname == '/' || window.location.pathname == '/login') {
+if (document.getElementById("login")) {
     var login = new Vue({
         el: '#login',
         data: {
@@ -19,10 +19,15 @@ if (window.location.pathname == '/' || window.location.pathname == '/login') {
 
             },
             login: function (event) {
-                io.socket.get('/Login/login', { name: this.username }, function (response) {
-                    console.log(response);
+                io.socket.get('/Login/login', { name: this.username }, function (user) {
+                    if (user) {
+                        if (window.location.path != '/') {
+                            window.location.reload();
+                        } else {
+                            window.location = '/dashboard'
+                        }
+                    }
                 });
-                window.location.href = 'http://localhost:1337/dashboard';
             }
         }
     })

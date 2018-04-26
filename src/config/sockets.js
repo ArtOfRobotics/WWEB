@@ -50,7 +50,6 @@ module.exports.sockets = {
   //
   // },
 
-
   /***************************************************************************
   *                                                                          *
   * `afterDisconnect`                                                        *
@@ -60,13 +59,12 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
 
-  // afterDisconnect: function(session, socket, done) {
-  //
-  //   // By default: do nothing.
-  //   // (but always trigger the callback)
-  //   return done();
-  //
-  // },
+  afterDisconnect: function (session, socket, done) {
+    if (session.user) {
+      User.destroy({ id: session.user.id });
+    }
+    return done();
+  },
 
 
   /***************************************************************************
