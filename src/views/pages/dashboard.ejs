@@ -28,15 +28,29 @@
                     <h1 class="">Sensors</h1>
                 </div>
             </div>
+
             <div class="card">
-                <img class="card-img-top" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" alt="Card image cap">
+                <div class="top-view w-100 h-100 justify-content-between d-flex flex-column">
+                    <div class="front justify-content-center d-flex align-items-start">
+                        <span v-for="value in values.slice(0, 6)" class="btn btn-outline-info">{{ value }}</span>
+                    </div>
+                    <div class="back d-flex justify-content-center align-items-end">
+                        <span v-for="value in values.slice(6, 12)" class="btn btn-outline-info">{{ value }}</span>
+                    </div>
+                </div>
+                <img class="card-img-top mx-auto" src="images/top_view.JPG" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Top View</h5>
                     <p class="card-text">Ultrasonic sensors for suroundings</p>
                 </div>
             </div>
             <div class="card">
-                <img class="card-img-top" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" alt="Card image cap">
+                <div class="side-view w-100 h-100 d-flex flex-column justify-content-end">
+                    <div class="d-flex justify-content-center align-items-end">
+                        <span v-for="value in values.slice(12, 16)" class="btn btn-outline-info">{{ value }}</span>
+                    </div>
+                </div>
+                <img class="card-img-top mx-auto" src="images/side_view.JPG" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Side View</h5>
                     <p class="card-text">Ultrasonic sensors to mesure depth</p>

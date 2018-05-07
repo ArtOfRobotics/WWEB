@@ -6,6 +6,7 @@ if (document.getElementById("header")) {
     if (element.is('li')) {
         element.addClass('active').parent().parent('li').addClass('active')
     }
+
     var header = new Vue({
         el: '#header',
         data: {
