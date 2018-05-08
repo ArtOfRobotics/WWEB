@@ -10,7 +10,7 @@ const msg = rosnodejs.require('sensor_msgs').msg;
 
 module.exports = {
     subscribe: function (req, res) {
-        sails.log("subscribing to sonar data");
+        sails.log(req.session.user.name + ' subscribing to sonar data');
         rosnodejs.initNode('/sonar_listener')
             .then((rosNode) => {
                 let sub = rosNode.subscribe('/sonar', msg.LaserEcho,

@@ -15,7 +15,7 @@ function talker() {
       // Define a function to execute every 100ms
       setInterval(() => {
         // Construct the message
-        msg.echoes = [count, count, count, count, count, count, count, count, count, count];
+        msg.echoes = [count, count, count, count, count, count, count, count, count, count, count, count, count, count, count, count];
         // Publish over ROS
         pub.publish(msg);
         // Log through stdout and /rosout
