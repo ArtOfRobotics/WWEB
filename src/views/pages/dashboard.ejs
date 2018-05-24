@@ -74,7 +74,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12"></div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Color</h5>
+                            <p class="card-text">
+                                Change the color of LED
+                            </p>
+                            <input class="jscolor {onFineChange:'update(this)'}" value="ffcc00"> R, G, B =
+                            <span id="rgb">{{ rgb }}</span>
+                            <span>Brightness</span>
+                            <input v-model="brightness">
+                            <div class="progress">
+                                <div id="brightness-bar" class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ brightness / 2.55 }} %">{{ brightness }}</div>
+                            </div>
+                            <a href="#" class="btn btn-primary">Update</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

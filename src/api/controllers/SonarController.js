@@ -4,21 +4,21 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
-
-const rosnodejs = require('rosnodejs')
+const rosnodejs = require('rosnodejs');
 const msg = rosnodejs.require('sensor_msgs').msg;
 
 module.exports = {
-    subscribe: function (req, res) {
+    subscribe: async function (req, res) {
+        if (!rosnodejs.nh._node) {
+            await rosnodejs.initNode('/willyweb');
+        }
         sails.log(req.session.user.name + ' subscribing to sonar data');
-        rosnodejs.initNode('/sonar_listener')
-            .then((rosNode) => {
-                let sub = rosNode.subscribe('/sonar', msg.LaserEcho,
-                    (data) => {
-                        sails.sockets.blast('sonarUpdated', data.echoes);
-                    }
-                );
-            });
+        let sub = rosnodejs.nh.subscribe('/sonar', msg.LaserEcho,
+            (data) => {
+                sails.sockets.blast('sonarUpdated', data.echoes);
+            }
+        );
+
     },
 
     unsubscribe: function (req, res) {
