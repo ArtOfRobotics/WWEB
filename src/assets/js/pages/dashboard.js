@@ -15,7 +15,7 @@ if (document.getElementById("dashboard")) {
     io.socket.on('sonarUpdated', function (data) {
         dashboard.sonar = data;
     });
-    io.socket.get('/Status/arduino', function (data) {
+    io.socket.get('/Status/arduinos', function (data) {
         dashboard.online = data;
     });
 }
