@@ -21,8 +21,9 @@ module.exports = {
         );
     },
 
+    // This function should be called when user is disconnected
     unsubscribe: function (req, res) {
 
     }
-};S
+};
 
