@@ -1,6 +1,8 @@
 .vs/
+.vscode/
 devel/
 build/
 node_modules
 *.code-workspace
 init.sh
+bower_components

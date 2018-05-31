@@ -11,4 +11,5 @@
   <author email="willythegarbagedisposal@gmail.com">Jonathan ten Hove</author>
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
 </package>

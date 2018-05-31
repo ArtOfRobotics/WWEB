@@ -1,0 +1,53 @@
+<div id="login" class="container d-flex h-75">
+    <div class="row justify-content-center align-self-center w-100">
+        <div class="col-md-12 d-flex justify-content-center">
+            <!-- Card Flip -->
+            <div class="col col-4 card-flip text-center">
+                <div class="flip">
+                    <div class="card-front">
+                        <!-- front content -->
+                        <div class="card">
+                            <div class="authenticate card-body form-group">
+                                <img class="img-fluid d-block mx-auto" src="images/logo.png" width="100">
+                                <h4>Willy Web</h4>
+                                <br />
+                                <i class="d-block  fa fa-lg fa-lock"></i>
+                                <h6 class="text-muted">Fill in the password</h6>
+                                <form class="form-inline">
+                                    <div class="input-group">
+                                        <input v-model="password" v-on:keypress.enter="authenticate" id="password" type="password" class="form-control">
+                                        <div class="input-group-append">
+                                            <button v-on:click="authenticate" class="btn btn-info" type="button">Authenticate</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <!-- back content -->
+                        <div class="card">
+                            <div class="login card-body form-group">
+                                <img class="img-fluid d-block mx-auto" src="images/logo.png" width="100">
+                                <h4>Willy Web</h4>
+                                <br />
+                                <i class="d-block  fa fa-lg fa-lock"></i>
+                                <h6 class="text-muted">Fill in your username</h6>
+                                <form class="form-inline">
+                                    <div class="input-group">
+                                        <input v-model="username" v-on:keypress.enter="login" id="username" type="text" class="form-control" placeholder="username">
+                                        <div class="input-group-append">
+                                            <button v-on:click="login" class="btn btn-info" type="button">Login</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Card Flip -->
+        </div>
+    </div>
+</div>
+</div>

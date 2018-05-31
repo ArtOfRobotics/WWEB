@@ -2,7 +2,7 @@
   "name": "src",
   "version": "1.0.0",
   "description": "",
-  "main": "dummydata.js",
+  "main": "receive.js",
   "dependencies": {
     "rosnodejs": "^2.2.0"
   },

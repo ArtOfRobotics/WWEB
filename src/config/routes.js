@@ -7,7 +7,6 @@
  * For more information on configuring custom routes, check out:
  * https://sailsjs.com/anatomy/config/routes-js
  */
-
 module.exports.routes = {
 
 
@@ -24,9 +23,13 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'pages/homepage'
-  },
+  '/': 'LoginController.view',
+  '/login': 'LoginController.view',
+  '/dashboard': 'DashboardController.view',
+  '/control': 'ControlController.view',
+  '/visualisation': 'VisualisationController.view',
+  '/configuration': 'ConfigurationController.view',
+
 
   /***************************************************************************
   *                                                                          *

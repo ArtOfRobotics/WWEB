@@ -1,0 +1,102 @@
+<div id="dashboard" class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="">Location</h1>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" alt="Card image cap">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Longitude:&nbsp;</li>
+                    <li class="list-group-item">Lattitude:&nbsp;</li>
+                </ul>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Indoor location</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go to visualisation</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="">Sensors</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="top-view w-100 h-100 justify-content-between d-flex flex-column">
+                    <div class="front justify-content-center d-flex align-items-start">
+                        <span v-for="value in sonar.slice(0, 6)" class="btn btn-outline-info">{{ value }}</span>
+                    </div>
+                    <div class="back d-flex justify-content-center align-items-end">
+                        <span v-for="value in sonar.slice(6, 12)" class="btn btn-outline-info">{{ value }}</span>
+                    </div>
+                </div>
+                <img class="card-img-top mx-auto" src="images/top_view.JPG" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Top View</h5>
+                    <p class="card-text">Ultrasonic sensors for suroundings</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="side-view w-100 h-100 d-flex flex-column justify-content-end">
+                    <div class="d-flex justify-content-center align-items-end">
+                        <span v-for="value in sonar.slice(12, 16)" class="btn btn-outline-info">{{ value }}</span>
+                    </div>
+                </div>
+                <img class="card-img-top mx-auto" src="images/side_view.JPG" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Side View</h5>
+                    <p class="card-text">Ultrasonic sensors to mesure depth</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="">Status</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-group">
+                        <li v-for="item in online" class="list-group-item d-flex justify-content-between align-items-center">{{ item.name }}
+                            <span v-if="item.online" class="badge badge-pill badge-success">{{ item.online }}</span>
+                            <span v-else class="badge badge-primary badge-pill">{{ item.online }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Color</h5>
+                            <p class="card-text">
+                                Change the color of LED
+                            </p>
+                            <input class="jscolor {onFineChange:'update(this)'}" value="ffcc00"> R, G, B =
+                            <span id="rgb">{{ rgb }}</span>
+                            <span>Brightness</span>
+                            <input v-model="brightness">
+                            <div class="progress">
+                                <div id="brightness-bar" class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ brightness / 2.55 }} %">{{ brightness }}</div>
+                            </div>
+                            <a href="#" class="btn btn-primary">Update</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"> </div>
+        <div class="col-md-6"> </div>
+    </div>
+</div>
