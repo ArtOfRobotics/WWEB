@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-
+    // This function displays the configuration page
     view: function (req, res) {
         return res.view('pages/configuration');
     },

@@ -8,6 +8,7 @@ const rosnodejs = require('rosnodejs');
 const msg = rosnodejs.require('sensor_msgs').msg;
 
 module.exports = {
+    // This function is called when ultrasonic data is requested
     subscribe: async function (req, res) {
         if (!rosnodejs.nh._node) {
             await rosnodejs.initNode('/willyweb');
@@ -18,11 +19,10 @@ module.exports = {
                 sails.sockets.blast('sonarUpdated', data.echoes);
             }
         );
-
     },
 
     unsubscribe: function (req, res) {
 
     }
-};
+};S
 

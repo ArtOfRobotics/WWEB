@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+    // This function displays the visualisation page
     view: function (req, res) {
         return res.view('pages/visualisation');
     },
