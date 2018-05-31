@@ -1,7 +1,9 @@
 = Willy Web
 
 Prerequirements:
+
 * Ros kinetic installed
+* Roscore running
 
 Install:
 
