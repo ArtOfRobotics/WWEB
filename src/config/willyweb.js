@@ -1,4 +1,4 @@
-module.exports.myconf = {
+module.exports.config = {
     password: 'Willy1234',
     landingPage: '/dashboard',
 
