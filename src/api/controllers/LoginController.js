@@ -17,6 +17,7 @@ module.exports = {
     },
     // This function is called upon authentication, when the user has entered a password
     authenticate: function (req, res) {
+        console.log(sails.config.password);
         if (req.param('password') == sails.config.password) {
             console.log('User authenticated from: ' + req.ip);
             req.session.authenticated = true;
