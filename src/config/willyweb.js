@@ -1,4 +1,4 @@
-module.exports.config = {
+module.exports.defaults = {
     password: 'Willy1234',
     landingPage: '/dashboard',
 
