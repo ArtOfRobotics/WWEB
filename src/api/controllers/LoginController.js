@@ -9,7 +9,7 @@ module.exports = {
     // This function displays the default landingspage or login if the user is not authenticated
     view: function (req, res) {
         if (req.session.authenticated && req.session.user) {
-            return res.redirect(sails.config.defaults.landingpage);
+            return res.redirect(sails.config.defaults.landingPage);
         } else {
             console.log('New visitor from: ' + req.ip + ' at: ' + req.originalUrl);
             return res.view('pages/login', { layout: 'layouts/login' });
@@ -17,7 +17,6 @@ module.exports = {
     },
     // This function is called upon authentication, when the user has entered a password
     authenticate: function (req, res) {
-        console.log(sails.config.defaults.password);
         if (req.param('password') == sails.config.defaults.password) {
             console.log('User authenticated from: ' + req.ip);
             req.session.authenticated = true;

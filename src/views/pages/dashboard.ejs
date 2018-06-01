@@ -86,7 +86,7 @@
                             <span>Brightness</span>
                             <input v-model="brightness">
                             <div class="progress">
-                                <div id="brightness-bar" class="progress-bar progress-bar-striped" role="progressbar" style="width: {{ brightness / 2.55 }} %">{{ brightness }}</div>
+                                <div id="brightness-bar" class="progress-bar progress-bar-striped" role="progressbar" v-bind:style="brightnessStyle">{{ brightness }}</div>
                             </div>
                             <a href="#" class="btn btn-primary">Update</a>
                         </div>
