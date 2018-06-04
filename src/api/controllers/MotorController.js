@@ -9,8 +9,8 @@ const rosnodejs = require('rosnodejs');
 const msg = rosnodejs.require('geometry_msgs').msg;
 
 module.exports = {
-     // This function is called as a preperation before publishing new data onto the CMD_vel topic
-     advertise: async function (req, res) {
+    // This function is called as a preperation before publishing new data onto the CMD_vel topic
+    advertise: async function (req, res) {
         if (!rosnodejs.nh._node) {
             await rosnodejs.initNode('/willyweb');
         }
@@ -22,8 +22,8 @@ module.exports = {
     publish: function (req, res) {
         var vectorLinear = new msgs.Vector3();
         var vectorAngular = new msgs.Vector3();
-        vectorLinear = [req.param('x'), 0, 0]; // [x, y, z]
-        vectorAngular = [0, 0, req.param('z')]; // [x, y, z]
+        vectorLinear = { x: req.param('x'), y: 0, z: 0 }; // [x, y, z]
+        vectorAngular = { x: 0, y: 0, z: req.param('z') }; // [x, y, z]
 
         // Publish over ROS
         pub.publish({ linear: vectorLinear, angular: vectorAngular });

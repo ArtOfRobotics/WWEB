@@ -59,9 +59,10 @@ module.exports.sockets = {
   *                                                                          *
   ***************************************************************************/
 
-  afterDisconnect: function (session, socket, done) {
+  afterDisconnect: async function (session, socket, done) {
     if (session.user) {
-      User.destroy({ id: session.user.id });
+      await User.destroy({ id: session.user.id });
+      delete session.user;
     }
     return done();
   },

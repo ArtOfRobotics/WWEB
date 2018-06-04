@@ -11,7 +11,7 @@ let pub = null;
 module.exports = {
     // This function is called as a preperation before publishing new data onto the LED topic
     advertise: async function (req, res) {
-        
+
         if (!rosnodejs.nh._node) {
             await rosnodejs.initNode('/willyweb');
         }
@@ -22,7 +22,7 @@ module.exports = {
     // This function is called when the color of the leds are updated, the new data is published onto the LED topic
     publish: function (req, res) {
         // Publish over ROS
-        pub.publish({ data: req.param('rgb') });
+        pub.publish({ r: req.param('rgb')[0], g: req.param('rgb')[1], b: req.param('rgb')[2], a: req.param('rgb')[3] });
         // Log through stdout and /rosout
         return res.json({ succes: true });
     }
