@@ -1,0 +1,4 @@
+.topview .front span, .side-view span{
+    color: red !important;
+    font-weight: bold !important;
+}

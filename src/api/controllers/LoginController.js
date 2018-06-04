@@ -18,18 +18,18 @@ module.exports = {
     // This function is called upon authentication, when the user has entered a password
     authenticate: function (req, res) {
         if (req.param('password') == sails.config.defaults.password) {
-            console.log('User authenticated from: ' + req.ip);
+            console.log('New visitor authenticated from: ' + req.ip);
             req.session.authenticated = true;
             res.json({ succes: true });
         } else {
-            console.log('User authentication failed: ' + req.ip);
+            console.log('New visitor authentication failed: ' + req.ip);
             res.json({ succes: false });
         }
     },
     // This function is called upon identification, when the user has entered a username
     login: async function (req, res) {
         if (req.session.authenticated) {
-            console.log('User identified as: ' + req.param('name') + ' from: ' + req.ip);
+            console.log('New visitor identified as: ' + req.param('name') + ' from: ' + req.ip);
             var user = await User.create({ name: req.param('name'), session: req.session.id, currentpage: req.originalUrl }).fetch();
             req.session.user = user;
             return res.json(user);

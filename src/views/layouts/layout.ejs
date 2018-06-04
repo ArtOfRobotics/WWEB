@@ -104,6 +104,9 @@
             <a v-for="user in users" class="dropdown-item" href="#">{{ user.name }}
               <span class="badge badge-pill badge-info">{{ user.currentpage }}</span>
             </a>
+            <a class="dropdown-item" href="#">Clear users
+              <span onclick="ClearUsers();" class="badge badge-pill badge-secondary">x</span>
+            </a>
           </div>
         </div>
       </div>
@@ -136,7 +139,7 @@
     -->
 
   <!--TEMPLATES-->
-  
+
   <!--TEMPLATES END-->
 
 

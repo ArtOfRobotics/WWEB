@@ -6,7 +6,7 @@
  */
 
 const rosnodejs = require('rosnodejs');
-const msg = rosnodejs.require('geometry_msgs').msg;
+const msgs = rosnodejs.require('geometry_msgs').msg;
 
 module.exports = {
     // This function is called as a preperation before publishing new data onto the CMD_vel topic

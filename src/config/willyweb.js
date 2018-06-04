@@ -4,9 +4,10 @@ module.exports.defaults = {
 
   //Arduinos
   arduinos: [
-    { 'name': 'Motor Arduino', 'node': 'arduino0' },
-    { 'name': 'GPS & Compass Arduino', 'node': 'arduino1' },
-    { 'name': 'Sonar Arduino', 'node': 'arduino2' }],
+    { 'name': 'LED Arduino', 'node': 'arduino0' },
+    { 'name': 'Motor Arduino', 'node': 'arduino1' },
+    { 'name': 'GPS & Compass Arduino', 'node': 'arduino2' },
+    { 'name': 'Sonar Arduino', 'node': 'arduino3' }],
 
   //Dummydata
   dummy: {

@@ -28,4 +28,10 @@ if (document.getElementById("header")) {
             header.users = users;
         });
     }
+    function ClearUsers() {
+        var i;
+        for (i = 0; i < users.length; i++) {
+            io.socket.delete('/User/' + i);
+        }
+    }
 }
