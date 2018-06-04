@@ -29,6 +29,9 @@ if (window.location.pathname == '/control') {
 
                 // Only send new values if they are different enough
                 if (Math.abs(lastX - x) > 0.02 || Math.abs(lastY - y) > 0.02) {
+                    io.socket.get('/Motor/publish', { linear: x, angular: y  }, function (data) {
+                        console.log(data);
+                    });
                     //rcHub.invoke('Move', x, y); // TODO
                     lastX = x;
                     lastY = y;
