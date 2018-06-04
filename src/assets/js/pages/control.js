@@ -1,4 +1,6 @@
 if (window.location.pathname == '/control') {
+    io.socket.get('/Motor/advertise');
+
     var vm = this;
     var lastX = 0;
     var lastY = 0;
