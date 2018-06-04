@@ -11,22 +11,15 @@ async function listener() {
         { 'name': 'GPS & Compass Arduino', 'node': 'arduino2' },
         { 'name': 'Sonar Arduino', 'node': 'arduino3' }];
     var arduinosStatus = [];
-    var execs = [];
     arduinos.forEach((arduinos, (arduino) => {
-        execs.push(exec('rosnode ping -c 1 ' + arduino.node));
-
-    }));
-    arduinosStatus.forEach(exec => {
-        exec.stdout.on('data', (data) => {
+        exec('rosnode ping -c 1 ' + arduino.node).stdout.on('data', (data) => {
             if (data.indexOf("reply") > -1) {
                 arduinosStatus.push({ 'name': arduino.name, 'online': true });
-                console.log(data);
             } else {
                 arduinosStatus.push({ 'name': arduino.name, 'online': false });
-                console.log(data);
             }
         });
-    })
+    }));
     console.log(arduinosStatus);
 }
 function checkReply(arduino) {
