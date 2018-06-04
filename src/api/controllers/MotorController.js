@@ -20,8 +20,13 @@ module.exports = {
     },
     // This function is called when the movement is updated, the new data is published onto the CMD_vel topic
     publish: function (req, res) {
+        var vectorLinear = new msgs.Vector3();
+        var vectorAngular = new msgs.Vector3();
+        vectorLinear = [req.param('x'), 0, 0]; // [x, y, z]
+        vectorAngular = [0, 0, req.param('z')]; // [x, y, z]
+
         // Publish over ROS
-        pub.publish({ linear: req.param('linear'), angular: req.param('angular')});
+        pub.publish({ linear: vectorLinear, angular: vectorAngular });
         // Log through stdout and /rosout
         return res.json({ succes: true });
     }

@@ -29,10 +29,10 @@ if (window.location.pathname == '/control') {
 
                 // Only send new values if they are different enough
                 if (Math.abs(lastX - x) > 0.02 || Math.abs(lastY - y) > 0.02) {
-                    io.socket.get('/Motor/publish', { linear: x, angular: y  }, function (data) {
+                    io.socket.get('/Motor/publish', { x: x, z: y  }, function (data) {
                         console.log(data);
                     });
-                    //rcHub.invoke('Move', x, y); // TODO
+                    //rcHub.invoke('Move', x, y);
                     lastX = x;
                     lastY = y;
                 }
@@ -40,10 +40,16 @@ if (window.location.pathname == '/control') {
                 lastX = 0;
                 lastY = 0;
                 $timeout(function () {
-                    //rcHub.invoke('Move', 0.0, 0.0) // TODO
+                    io.socket.get('/Motor/publish', { x: 0.0, z: 0.0 }, function (data) {
+                        console.log(data);
+                    });
+                    //rcHub.invoke('Move', 0.0, 0.0)
                 }, 250);
                 $timeout(function () {
-                    //rcHub.invoke('Move', 0.0, 0.0) // TODO
+                    io.socket.get('/Motor/publish', { x: 0.0, z: 0.0  }, function (data) {
+                        console.log(data);
+                    });
+                    //rcHub.invoke('Move', 0.0, 0.0) 
                 }, 500)
 
             }
