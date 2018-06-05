@@ -7,7 +7,7 @@ if (document.getElementById("dashboard")) {
             status: [],
             components: [],
             status: [{ name: 'Loading...' }],
-            rgb: [255, 255, 255, 255],
+            rgb: [255, 255, 255],
             brightness: 255,
             brightnessStyle: {
                 width: 255 / 2.55 + '%'
