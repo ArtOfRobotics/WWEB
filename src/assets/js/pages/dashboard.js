@@ -5,6 +5,7 @@ if (document.getElementById("dashboard")) {
             users: [],
             sonar: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
             status: [],
+            components: [],
             rgb: [255, 255, 255, 255],
             brightness: 255,
             brightnessStyle: {
@@ -25,12 +26,16 @@ if (document.getElementById("dashboard")) {
     io.socket.on('statusUpdated', function (data) {
         dashboard.status = data;
     });
+    io.socket.on('componentsUpdated', function (data) {
+        dashboard.components = data;
+    });
     io.socket.on('sonarUpdated', function (data) {
         dashboard.sonar = data;
     });
-    io.socket.get('/Status/arduinos', function (data) {
-        dashboard.online = data;
-    });
+    setInterval(() => {
+        io.socket.get('/Status/arduinos');
+        io.socket.get('/Status/ping');
+      }, 10000);
 }
 
 function update(picker) {
@@ -40,8 +45,6 @@ function update(picker) {
         Math.round(picker.rgb[2]);
 
     dashboard.rgb = [picker.rgb[0], picker.rgb[1], picker.rgb[2], dashboard.brightness];
-
-
     io.socket.get('/Led/publish', { rgb: dashboard.rgb }, function (data) {
         console.log(data);
     });

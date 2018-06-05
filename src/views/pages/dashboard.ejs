@@ -86,8 +86,12 @@
                 <div class="col-md-12">
                     <ul class="list-group">
                         <li v-for="item in status" class="list-group-item d-flex justify-content-between align-items-center">{{ item.name }}
-                            <span v-if="item.online" class="badge badge-pill badge-success">{{ item.online }}</span>
-                            <span v-else class="badge badge-primary badge-pill">{{ item.online }}</span>
+                            <span v-if="item.online" class="badge badge-pill badge-success">online</span>
+                            <span v-else class="badge badge-primary badge-pill">offline</span>
+                        </li>
+                        <li v-for="item in components" class="list-group-item d-flex justify-content-between align-items-center">{{ item.name }}
+                            <span v-if="item.online" class="badge badge-pill badge-success">online</span>
+                            <span v-else class="badge badge-primary badge-pill">offline</span>
                         </li>
                     </ul>
                 </div>
