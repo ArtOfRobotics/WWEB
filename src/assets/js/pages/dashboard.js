@@ -6,6 +6,7 @@ if (document.getElementById("dashboard")) {
             sonar: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
             status: [],
             components: [],
+            status: [{ name: 'Loading...' }],
             rgb: [255, 255, 255, 255],
             brightness: 255,
             brightnessStyle: {
@@ -22,7 +23,6 @@ if (document.getElementById("dashboard")) {
     })
 
     io.socket.get('/Sonar/subscribe');
-    io.socket.get('/Led/advertise');
     io.socket.on('statusUpdated', function (data) {
         dashboard.status = data;
     });

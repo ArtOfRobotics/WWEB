@@ -17,7 +17,7 @@ async function talker() {
   setInterval(() => {
     vectorLinear = { x: count, y: 0, z: 0 }; // [x, y, z]
     vectorAngular = { x: 0, y: 0, z: count }; // [x, y, z]
-    msg = { linear: vectorLinear, angular: vectorAngular }
+    msg = { linear: vectorLinear, angular: vectorAngular };
     // Publish over ROS
     pub.publish(msg);
     // Log through stdout and /rosout

@@ -21,17 +21,16 @@ if (document.getElementById("header")) {
     UpdateUsers();
     io.socket.on('userUpdated', function () {
         UpdateUsers();
-    })
+    });
+}
+function UpdateUsers() {
+    io.socket.get('/User', function (users) {
+        header.users = users;
+    });
+}
+function ClearUsers() {
+    header.users.forEach(user => {
+        io.socket.delete('/User/' + user.id);
+    });
 
-    function UpdateUsers() {
-        io.socket.get('/User', function (users) {
-            header.users = users;
-        });
-    }
-    function ClearUsers() {
-        var i;
-        for (i = 0; i < users.length; i++) {
-            io.socket.delete('/User/' + i);
-        }
-    }
 }

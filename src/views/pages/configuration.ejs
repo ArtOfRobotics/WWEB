@@ -1,0 +1,23 @@
+<div id="configuration" class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Color</h5>
+                    <p class="card-text">
+                        Change the color of LED
+                    </p>
+                    <input class="jscolor {onFineChange:'update(this)'}" value="ffcc00">
+                    <br> R, G, B =
+                    <span id="rgb">{{ rgb }}</span>
+                    <span>Brightness</span>
+                    <input v-model="brightness">
+                    <div class="progress">
+                        <div id="brightness-bar" class="progress-bar progress-bar-striped" role="progressbar" v-bind:style="brightnessStyle">{{ brightness }}</div>
+                    </div>
+                    <a href="#" class="btn btn-primary">Update</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

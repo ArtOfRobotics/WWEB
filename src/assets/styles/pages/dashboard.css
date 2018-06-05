@@ -1,4 +1,5 @@
-.topview .front span, .side-view span{
+.front span, .back span, .side-view span{
     color: red !important;
     font-weight: bold !important;
+    padding: 0.275rem 0.8rem !important;
 }
