@@ -6,12 +6,12 @@
  */
 const rosnodejs = require('rosnodejs');
 const msgs = rosnodejs.require('std_msgs').msg;
+const gmsgs = rosnodejs.require('geometry_msgs').msg;
 let pub = null;
 
 module.exports = {
     // This function is called as a preperation before publishing new data onto the LED topic
     advertise: async function (req, res) {
-
         if (!rosnodejs.nh._node) {
             await rosnodejs.initNode('/willyweb');
         }
@@ -21,40 +21,48 @@ module.exports = {
     },
     // This function is called when the color of the leds are updated, the new data is published onto the LED topic
     publish: function (req, res) {
+        var msg = new msgs.ColorRGBA();
+
+        msg = { r: req.param('rgb')[0], g: req.param('rgb')[1], b: req.param('rgb')[2], a: req.param('rgb')[3] }
         // Publish over ROS
-        pub.publish({ r: req.param('rgb')[0], g: req.param('rgb')[1], b: req.param('rgb')[2], a: req.param('rgb')[3] });
+        pub.publish(msg);
         // Log through stdout and /rosout
         return res.json({ succes: true });
     },
-    drivingColors: function (req, res){
+    drivingColors: async function (req, res) {
         if (!rosnodejs.nh._node) {
             await rosnodejs.initNode('/willyweb');
         }
-        let sub = rosnodejs.nh.subscribe('/cmd_vel', msg.Twist,
+        if (null == pub) {
+            this.advertise(req, res);
+        }
+        let sub = rosnodejs.nh.subscribe('/cmd_vel', gmsgs.Twist,
             (data) => {
                 switch (true) {
                     case data.linear.x > 0:
-                    // Blue flickering (driving forward)
-                    setInterval(() => {
+                        // Blue flickering (driving forward)
                         pub.publish({ r: 0, g: 0, b: 255, a: 255 });
-                        setInterval(() => {
-                            pub.publish({ r: 255, g: 255, b: 255, a: 255 });
-                          }, 1000);  
-                    }, 2000);                    
+                        // setInterval(() => {
+                        //     pub.publish({ r: 0, g: 0, b: 255, a: 255 });
+                        //     setInterval(() => {
+                        //         pub.publish({ r: 255, g: 255, b: 255, a: 255 });
+                        //     }, 1000);
+                        // }, 2000);
                         break;
-                        case data.linear.x < 0:
+                    case data.linear.x < 0:
                         // Red flickering (driving reverse)
-                        setInterval(() => {
-                            pub.publish({ r: 255, g: 0, b: 0, a: 255 });
-                            setInterval(() => {
-                                pub.publish({ r: 255, g: 255, b: 255, a: 255 });
-                              }, 1000);  
-                        }, 2000);
-                        
+                        pub.publish({ r: 255, g: 0, b: 0, a: 255 });
+                        // setInterval(() => {
+                        //     pub.publish({ r: 255, g: 0, b: 0, a: 255 });
+                        //     setInterval(() => {
+                        //         pub.publish({ r: 255, g: 255, b: 255, a: 255 });
+                        //     }, 1000);
+                        // }, 2000);
+
                         break;
                     default:
-                    // Solid green (no driving)
-                    pub.publish({ r: 0, g: 255, b: 0, a: 255 });
+                        // Solid green (no driving)
+                        pub.publish({ r: 0, g: 255, b: 0, a: 255 });
                         break;
                 }
                 sails.sockets.blast('ledUpdated');

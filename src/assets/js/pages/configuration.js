@@ -6,7 +6,8 @@ if (document.getElementById("configuration")) {
             brightness: 255,
             brightnessStyle: {
                 width: 255 / 2.55 + '%'
-            }
+            },
+            drivingColors: false
         },
         watch: {
             brightness: function (val, oldVal) {
@@ -14,6 +15,9 @@ if (document.getElementById("configuration")) {
                     width: val / 2.55 + '%'
                 }
             },
+            drivingColors: function (val, oldVal) {
+                io.socket.get('/Led/drivingColors');
+            }
         }
     })
     io.socket.get('/Led/advertise');
@@ -24,9 +28,9 @@ function update(picker) {
         Math.round(picker.rgb[1]) + ', ' +
         Math.round(picker.rgb[2]);
 
-    dashboard.rgb = [picker.rgb[0], picker.rgb[1], picker.rgb[2], dashboard.brightness];
+    configuration.rgb = [picker.rgb[0], picker.rgb[1], picker.rgb[2], configuration.brightness];
 
-    io.socket.get('/Led/publish', { rgb: dashboard.rgb }, function (data) {
+    io.socket.get('/Led/publish', { rgb: configuration.rgb }, function (data) {
         console.log(data);
     });
 }

@@ -9,10 +9,9 @@ module.exports.defaults = {
     { 'name': 'GPS & Compass Arduino', 'node': 'arduino1' },
     { 'name': 'Sonar Arduino', 'node': 'arduino2' }],
 
-  ping: [
-    { 'name': 'Sick Lidar', 'ip': '192.168.0.180'},
-    { 'name': 'Router', 'ip': '192.168.0.1'}
-  ], 
+  network: [
+    { 'name': 'Sick Lidar', 'ip': '192.168.0.180' },
+    { 'name': 'Router', 'ip': '192.168.0.1' }],
 
   //Dummydata
   dummy: {

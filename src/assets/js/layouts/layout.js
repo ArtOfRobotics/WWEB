@@ -30,7 +30,9 @@ function UpdateUsers() {
 }
 function ClearUsers() {
     header.users.forEach(user => {
-        io.socket.delete('/User/' + user.id);
+        if (user.id != header.user.id) {
+            io.socket.delete('/User/' + user.id);
+        }
     });
-
+    UpdateUsers();
 }

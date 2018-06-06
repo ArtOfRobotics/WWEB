@@ -1,6 +1,27 @@
 if (window.location.pathname == '/control') {
     io.socket.get('/Motor/advertise');
 
+    var control = new Vue({
+        el: '#control',
+        data: {
+            speed: 50,
+        },
+        watch: {
+            brightness: function (val, oldVal) {
+                this.brightnessStyle = {
+                    width: val / 2.55 + '%'
+                }
+            },
+        }
+    })
+
+    var slider = new Slider("#ex1", {
+    });
+    slider.on("slide", function (sliderValue) {
+        control.speed = sliderValue;
+    });
+
+
     var vm = this;
     var lastZ = 0;
     var lastX = 0;
@@ -31,29 +52,14 @@ if (window.location.pathname == '/control') {
 
                 // Only send new values if they are different enough
                 if (Math.abs(lastZ - x) > 0.02 || Math.abs(lastX - x > 0.02)) {
-                    io.socket.get('/Motor/publish', { x: x, z: z }, function (data) {
-                        console.log(data);
-                    });
-                    //rcHub.invoke('Move', x, y);
+                    io.socket.get('/Motor/publish', { x: x, z: z });
                     lastZ = z;
                     lastX = x;
                 }
             } else if (evt.type === 'end') {
                 lastZ = 0;
                 lastX = 0;
-                $timeout(function () {
-                    io.socket.get('/Motor/publish', { x: 0.0, z: 0.0 }, function (data) {
-                        console.log(data);
-                    });
-                    //rcHub.invoke('Move', 0.0, 0.0)
-                }, 250);
-                $timeout(function () {
-                    io.socket.get('/Motor/publish', { x: 0.0, z: 0.0 }, function (data) {
-                        console.log(data);
-                    });
-                    //rcHub.invoke('Move', 0.0, 0.0) 
-                }, 500)
-
+                io.socket.get('/Motor/publish', { x: 0, z: 0 });
             }
         });
     }).on('removed', function (evt, nipple) {

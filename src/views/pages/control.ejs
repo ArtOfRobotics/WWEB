@@ -1,9 +1,18 @@
-<div class="container">
+<div id="control" class="container">
     <h4 class="page-header">Remote control</h4>
     <div class="panel section-secondary">
         <div class="panel-body joystick-panel">
             <div id="joystick-container"></div>
             <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Speed adjustment</h5>
+                <input v-model="speed" id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="50" data-slider-max="99" data-slider-step="1"
+                    data-slider-value="50" />
+            </div>
         </div>
     </div>
 </div>

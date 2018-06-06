@@ -32,20 +32,12 @@ if (document.getElementById("dashboard")) {
     io.socket.on('sonarUpdated', function (data) {
         dashboard.sonar = data;
     });
-    setInterval(() => {
-        io.socket.get('/Status/arduinos');
-        io.socket.get('/Status/ping');
-      }, 10000);
+    io.socket.get('/Status/ping');
+    //setInterval(() => {
+    //    io.socket.get('/Status/ping');
+    //  }, 10000);
 }
 
-function update(picker) {
-    document.getElementById('rgb').innerHTML =
-        Math.round(picker.rgb[0]) + ', ' +
-        Math.round(picker.rgb[1]) + ', ' +
-        Math.round(picker.rgb[2]);
-
-    dashboard.rgb = [picker.rgb[0], picker.rgb[1], picker.rgb[2], dashboard.brightness];
-    io.socket.get('/Led/publish', { rgb: dashboard.rgb }, function (data) {
-        console.log(data);
-    });
+function updateStatus() {
+    io.socket.get('/Status/ping');
 }
