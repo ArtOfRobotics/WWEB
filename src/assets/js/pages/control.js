@@ -4,7 +4,7 @@ if (window.location.pathname == '/control') {
     var control = new Vue({
         el: '#control',
         data: {
-            speed: 50,
+            speed: 10,
         },
         watch: {
             brightness: function (val, oldVal) {
@@ -38,7 +38,7 @@ if (window.location.pathname == '/control') {
             if (evt.type === 'move') {
                 var z = 0, x = 0;
                 // Willy is quite sensitive so turn down the distance by a fair margin, could make this a slider
-                var distance = data.distance / 50;
+                var distance = data.distance / (100 - control.speed);
                 if (((data.angle.degree <= 90) && (data.angle.degree >= 0)) || ((data.angle.degree <= 360) && (data.angle.degree >= 270))) {
                     z = Math.cos(data.angle.radian) * distance;
                     x = Math.sin(data.angle.radian) * distance;

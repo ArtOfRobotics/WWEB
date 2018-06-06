@@ -279,7 +279,7 @@ module.exports = {
     // sails_sockets__url=redis://admin:myc00lpAssw2D@bigsquid.redistogo.com:9562/
     // ```
     //--------------------------------------------------------------------------
-
+    onlyAllowOrigins: ["http://192.168.0.100", "http://localhost", "http://127.0.0.1"]
   },
 
 
