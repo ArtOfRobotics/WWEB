@@ -22,5 +22,23 @@ module.exports = {
             });
         });
         return res.json(arduinosStatus);
+    },
+
+    ping: function (req,res){
+        sails.log(req.session.user.name + ' pinging components');
+        var componentStatus = [];
+        sails.config.defaults.ping.forEach(component => {
+            var status;
+            exec('ping  -c 1 ' + component.ip, (err, stdout, stderr) => {
+                if (stdout.indexOf("reply") > -1) {
+                    componentStatus.push({ 'name': component.name, 'online': true });
+                } else {
+                    componentStatus.push({ 'name': component.name, 'online': false });
+                }
+                sails.sockets.blast('statusUpdated', componentStatus);
+            });
+        });
+        return res.json(componentStatus);
+
     }
 };
