@@ -4,7 +4,7 @@ if (window.location.pathname == '/control') {
     var control = new Vue({
         el: '#control',
         data: {
-            speed: 10,
+            speed: 20,
         },
         watch: {
             brightness: function (val, oldVal) {
@@ -38,7 +38,7 @@ if (window.location.pathname == '/control') {
             if (evt.type === 'move') {
                 var z = 0, x = 0;
                 // Willy is quite sensitive so turn down the distance by a fair margin, could make this a slider
-                var distance = data.distance / (100 - control.speed);
+                var distance = data.distance / (200 - control.speed);
                 if (((data.angle.degree <= 90) && (data.angle.degree >= 0)) || ((data.angle.degree <= 360) && (data.angle.degree >= 270))) {
                     z = Math.cos(data.angle.radian) * distance;
                     x = Math.sin(data.angle.radian) * distance;
@@ -51,7 +51,7 @@ if (window.location.pathname == '/control') {
                 z = (z * -1) / 2;
 
                 // Only send new values if they are different enough
-                if (Math.abs(lastZ - x) > 0.02 || Math.abs(lastX - x > 0.02)) {
+                if (Math.abs(lastZ - x) > 0.04 || Math.abs(lastX - x > 0.04)) {
                     io.socket.get('/Motor/publish', { x: x, z: z });
                     lastZ = z;
                     lastX = x;
@@ -59,6 +59,7 @@ if (window.location.pathname == '/control') {
             } else if (evt.type === 'end') {
                 lastZ = 0;
                 lastX = 0;
+                io.socket.get('/Motor/publish', { x: 0, z: 0 });
                 io.socket.get('/Motor/publish', { x: 0, z: 0 });
             }
         });
