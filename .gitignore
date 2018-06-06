@@ -6,4 +6,4 @@ node_modules
 *.code-workspace
 init.sh
 bower_components
-src/config/env/development.js
+development.js
