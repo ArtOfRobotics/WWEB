@@ -21,6 +21,9 @@ if (document.getElementById("configuration")) {
         }
     })
     io.socket.get('/Led/advertise');
+    $('#toggle-event').change(function () {
+        configuration.drivingColors = $(this).prop('checked');
+    })
 }
 function update(picker) {
     document.getElementById('rgb').innerHTML =
