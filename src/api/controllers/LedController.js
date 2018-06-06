@@ -26,7 +26,7 @@ module.exports = {
         // Log through stdout and /rosout
         return res.json({ succes: true });
     },
-    driving: function (req, res){
+    drivingColors: function (req, res){
         if (!rosnodejs.nh._node) {
             await rosnodejs.initNode('/willyweb');
         }
