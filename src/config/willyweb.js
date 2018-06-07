@@ -4,9 +4,9 @@ module.exports.defaults = {
 
   //Arduinos
   arduinos: [
-    { 'name': 'LED Arduino', 'node': 'arduino3' },
-    { 'name': 'Motor Arduino', 'node': 'arduino0' },
-    { 'name': 'GPS & Compass Arduino', 'node': 'arduino1' },
+    { 'name': 'LED Arduino', 'node': 'arduino0' },
+    { 'name': 'Motor Arduino', 'node': 'arduino1' },
+    { 'name': 'GPS & Compass Arduino', 'node': 'arduino3' },
     { 'name': 'Sonar Arduino', 'node': 'arduino2' }],
 
   network: [
